@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-6">Community Articles</h1>
+  <button class="bg-red-500 text-red px-6 py-3 rounded">Tailwind Test </button>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    {% for article in articles %}
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">{{ article.title }}</h2>
+          <p class="text-sm text-gray-500">
+            By {{ article.author.username }} · {{ article.created_at|date:"M d, Y" }}
+          </p>
+
+          <div class="card-actions justify-end">
+            <a href="{{ article.get_absolute_url }}" class="btn btn-primary btn-sm">
+              Read more
+            </a>
+          </div>
+          <button class="btn btn-primary">DaisyUI Test</button>
+
+        </div>
+      </div>
+    {% empty %}
+      <p>No articles yet.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -6,6 +6,8 @@ __pycache__/
 venv/
 env/
 *.sqlite3
+db.sqlite3
+
 
 # Node / Tailwind
 node_modules/
