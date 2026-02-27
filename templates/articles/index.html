@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Articles | Community Hub{% endblock %}
+
+{% block content %}
+
+<h1 class="text-4xl font-bold mb-8 text-center">Latest Articles</h1>
+
+<div class="grid md:grid-cols-2 gap-6">
+  {% for article in articles %}
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">{{ article.title }}</h2>
+        <p class="text-gray-600">
+          {{ article.content|truncatewords:25 }}
+        </p>
+        <div class="card-actions justify-end">
+          <a href="#" class="btn btn-sm btn-outline">Read more</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No articles yet.</p>
+  {% endfor %}
+</div>
+
+{% endblock %}
