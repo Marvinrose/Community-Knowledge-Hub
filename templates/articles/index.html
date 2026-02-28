@@ -8,14 +8,14 @@
 
 <div class="grid md:grid-cols-2 gap-6">
   {% for article in articles %}
-    <div class="card bg-base-100 shadow-xl">
+    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition">
       <div class="card-body">
         <h2 class="card-title">{{ article.title }}</h2>
         <p class="text-gray-600">
           {{ article.content|truncatewords:25 }}
         </p>
         <div class="card-actions justify-end">
-          <a href="#" class="btn btn-sm btn-outline">Read more</a>
+          <a href="{{ article.get_absolute_url }}" class="btn btn-sm btn-outline"> Read more </a>
         </div>
       </div>
     </div>
