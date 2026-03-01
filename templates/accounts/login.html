@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-md mx-auto card bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title">Login</h2>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <input name="username" placeholder="Username" class="input input-bordered w-full mb-3" />
+      <input type="password" name="password" placeholder="Password" class="input input-bordered w-full mb-3" />
+
+      <button class="btn btn-primary w-full">Login</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

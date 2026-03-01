@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Create Article{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-base-100 p-6 shadow-xl rounded">
+
+  <h1 class="text-3xl font-bold mb-6">Create Article</h1>
+
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+
+    <div class="form-control">
+      {{ form.title.label_tag }}
+      {{ form.title }}
+    </div>
+
+    <div class="form-control">
+      {{ form.content.label_tag }}
+      {{ form.content }}
+    </div>
+
+    <button class="btn btn-primary w-full">Publish</button>
+  </form>
+
+</div>
+{% endblock %}

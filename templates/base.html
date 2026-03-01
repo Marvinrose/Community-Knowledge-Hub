@@ -12,12 +12,18 @@
   <!-- Navbar -->
   <div class="navbar bg-base-100 shadow-sm px-6">
     <div class="flex-1">
-      <a class="text-xl font-bold">Community Hub</a>
+      <a href="/" class="text-xl font-bold">Community Hub</a>
     </div>
+
     <div class="flex gap-2">
-        <a href="/" class="btn btn-ghost btn-sm">Home</a>
-        <a href="/articles/" class="btn btn-ghost btn-sm">Articles</a>
-        <a href="#" class="btn btn-primary btn-sm">New Post</a>
+      {% if user.is_authenticated %}
+        <span class="text-sm">Hi, {{ user.username }}</span>
+        <a href="{% url 'create_article' %}" class="btn btn-primary btn-sm">New Post</a>
+        <a href="/accounts/logout/" class="btn btn-ghost btn-sm">Logout</a>
+      {% else %}
+        <a href="/accounts/login/" class="btn btn-ghost btn-sm">Login</a>
+        <a href="/accounts/register/" class="btn btn-primary btn-sm">Register</a>
+      {% endif %}
     </div>
   </div>
 
@@ -27,7 +33,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer footer-center p-4 bg-base-200 text-base-content mt-12">
+  <footer class="footer text-center footer-center p-4 bg-base-200 text-base-content mt-12">
     <p>© 2026 Community Hub — Built with Django & DaisyUI</p>
   </footer>
 
