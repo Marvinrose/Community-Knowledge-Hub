@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Article{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-base-100 p-6 rounded-xl shadow-xl">
+
+  <h1 class="text-3xl font-bold mb-6">Edit Article</h1>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="mb-4">
+      <label class="label">Title</label>
+      <input
+        type="text"
+        name="title"
+        value="{{ article.title }}"
+        class="input input-bordered w-full"
+        required
+      />
+    </div>
+
+    <div class="mb-4">
+      <label class="label">Content</label>
+      <textarea
+        name="content"
+        rows="6"
+        class="textarea textarea-bordered w-full"
+        required
+      >{{ article.content }}</textarea>
+    </div>
+
+    <button class="btn btn-primary w-full">
+      Save Changes
+    </button>
+
+  </form>
+</div>
+{% endblock %}

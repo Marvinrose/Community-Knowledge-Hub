@@ -12,7 +12,20 @@
   </article>
 
   <div class="mt-6">
-    <a href="/" class="btn btn-outline btn-sm">← Back</a>
+    <a href="{% url 'articles' %}" class="btn btn-outline btn-sm">← Back</a>
   </div>
 </div>
+{% if user == article.author %}
+<div class="flex gap-3 mt-6">
+  <a href="{% url 'edit_article' article.slug %}"
+     class="btn btn-outline btn-primary">
+    Edit
+  </a>
+
+  <a href="{% url 'delete_article' article.slug %}"
+     class="btn btn-outline btn-error">
+    Delete
+  </a>
+</div>
+{% endif %}
 {% endblock %}

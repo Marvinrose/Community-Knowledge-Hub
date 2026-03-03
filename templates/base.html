@@ -27,6 +27,20 @@
     </div>
   </div>
 
+  {% if messages %}
+  <div class="max-w-6xl mx-auto mt-4 px-4 space-y-2">
+    {% for message in messages %}
+      <div class="alert 
+        {% if message.tags == 'success' %}alert-success
+        {% elif message.tags == 'error' %}alert-error
+        {% elif message.tags == 'warning' %}alert-warning
+        {% else %}alert-info{% endif %}">
+        <span>{{ message }}</span>
+      </div>
+    {% endfor %}
+  </div>
+    {% endif %}
+
   <!-- Page Content -->
   <main class="max-w-6xl mx-auto p-6">
     {% block content %}{% endblock %}
